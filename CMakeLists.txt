@@ -69,7 +69,7 @@ set(CPACK_PACKAGE_FILE_NAME "wxMaxima-${CPACK_PACKAGE_VERSION}-${INSTALLERSUFFIX
 #set(CPACK_NSIS_INSTALL_ROOT "C:")
 set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
 set(CPACK_NSIS_URL_INFO_ABOUT "https://wxmaxima-developers.github.io/wxmaxima/")
-set(CPACK_NSIS_MENU_LINKS "https://wxmaxima-developers.github.io/wxmaxima/" "About wxMaxima")
+set(CPACK_NSIS_MENU_LINKS "bin/wxmaxima.exe" "wxMaxima" "https://wxmaxima-developers.github.io/wxmaxima/" "About wxMaxima")
 set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
 
 # #File associations:

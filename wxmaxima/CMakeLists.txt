@@ -32,10 +32,6 @@ externalproject_add(wxmaxima
 # install wxMaxima files
 install(DIRECTORY ${CMAKE_BINARY_DIR}/installroot/usr/local/ DESTINATION .)
 
-# install wxWidgets locale files
-install(DIRECTORY ${CMAKE_BINARY_DIR}/wxMaxima-translations/wxMaxima/locale DESTINATION share/)
-
-
 # wxMaxima uses OpenMP, include the required mingw libraries.
 execute_process(COMMAND "${CMAKE_CXX_COMPILER}" -print-file-name=libgomp-1.dll OUTPUT_VARIABLE MINGW_LIBGOMP OUTPUT_STRIP_TRAILING_WHITESPACE)
 

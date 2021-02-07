@@ -1,0 +1,33 @@
+name: compile_ubuntu
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  compile_2004:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout_git
+      uses: actions/checkout@v2
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 15
+    - name: install_packages
+      run: |
+           sudo apt update
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64
+    - name: configure
+      run: |
+           mkdir build
+           cd build
+           cmake ..
+           cd ..
+    - name: compile
+      run: |
+           cd build
+           cmake --build .
+           cd ..

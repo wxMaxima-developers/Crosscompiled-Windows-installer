@@ -19,7 +19,7 @@ jobs:
     - name: install_packages
       run: |
            sudo apt update
-           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis
     - name: configure
       run: |
            mkdir build
@@ -50,7 +50,7 @@ jobs:
     - name: install_packages
       run: |
            sudo apt update
-           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis 
     - name: configure
       run: |
            mkdir build

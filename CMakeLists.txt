@@ -72,6 +72,8 @@ set(CPACK_NSIS_URL_INFO_ABOUT "https://wxmaxima-developers.github.io/wxmaxima/")
 set(CPACK_NSIS_MENU_LINKS "bin/wxmaxima.exe" "wxMaxima" "https://wxmaxima-developers.github.io/wxmaxima/" "About wxMaxima")
 set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
 
+# Ship around a bug in CPACK in Ubuntu 20.04
+set(CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
 # #File associations:
 # set(CPACK_NSIS_DEFINES "!include ${CMAKE_SOURCE_DIR}\\\\FileAssociation.nsh")
 # set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "

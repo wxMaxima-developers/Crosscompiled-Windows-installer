@@ -36,7 +36,8 @@ jobs:
            cd build
            cpack
            cd ..
-
+    - name: nsislog
+      run: cat build/_CPack_Packages/win32/NSIS/NSISOutput.log
   build_32bit:
     runs-on: ubuntu-20.04
 
@@ -67,3 +68,5 @@ jobs:
            cd build
            cpack
            cd ..
+    - name: nsislog
+      run: cat build/_CPack_Packages/win32/NSIS/NSISOutput.log

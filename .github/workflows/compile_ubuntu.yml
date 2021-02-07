@@ -6,7 +6,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  compile_2004:
+  build_64bit:
     runs-on: ubuntu-20.04
 
     steps:
@@ -25,6 +25,37 @@ jobs:
            mkdir build
            cd build
            cmake ..
+           cd ..
+    - name: compile
+      run: |
+           cd build
+           cmake --build .
+           cd ..
+    - name: package
+      run: |
+           cd build
+           cpack
+           cd ..
+
+  build_32bit:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout_git
+      uses: actions/checkout@v2
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 15
+    - name: install_packages
+      run: |
+           sudo apt update
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64
+    - name: configure
+      run: |
+           mkdir build
+           cd build
+           cmake .. -DBUILD_64BIT=no
            cd ..
     - name: compile
       run: |

@@ -31,3 +31,8 @@ jobs:
            cd build
            cmake --build .
            cd ..
+    - name: package
+      run: |
+           cd build
+           cpack
+           cd ..

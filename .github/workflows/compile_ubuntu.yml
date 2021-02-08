@@ -7,7 +7,7 @@ env:
 
 jobs:
   build_64bit:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout_git
       uses: actions/checkout@v2
@@ -17,6 +17,8 @@ jobs:
         fetch-depth: 15
     - name: install_packages
       run: |
+           wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+           sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
            sudo apt update
            sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis
     - name: configure

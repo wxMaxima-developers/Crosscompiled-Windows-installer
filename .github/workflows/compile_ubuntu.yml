@@ -18,7 +18,7 @@ jobs:
     - name: install_packages
       run: |
            sudo apt update
-           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis nsis-pluginapi ninja
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis nsis-pluginapi ninja-build
            sudo apt dist-upgrade
     - name: configure
       run: |
@@ -49,7 +49,7 @@ jobs:
     - name: install_packages
       run: |
            sudo apt update
-           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis 
+           sudo apt-get install appstream-util cmake desktop-file-utils doxygen gettext pandoc mingw-w64 nsis ninja-build
     - name: configure
       run: |
            mkdir build

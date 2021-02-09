@@ -64,5 +64,6 @@ jobs:
     - name: package
       run: |
            cd build
+           export LANG=C
            cpack || cat _CPack_Packages/win32/NSIS/NSISOutput.log
            cd ..

@@ -15,6 +15,7 @@ set(WXWIDGETS_MD5 "47eaa907b3923bc5d6938bd5cf35b901")
 
 set(WXWIDGETS_URL "https://github.com/wxWidgets/wxWidgets/releases/download/v${WXWIDGETSVERSION}/wxWidgets-${WXWIDGETSVERSION}.tar.bz2")
 
+
 # Build wxWidgets static library (required for wxMaxima)
 # We link statically, so the installation of the library is not
 # necessary, we only need the locale files. But fortunately
@@ -25,5 +26,8 @@ externalproject_add(wxwidgets
   URL_MD5 ${WXWIDGETS_MD5}
   CONFIGURE_COMMAND ${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets/configure --disable-shared --disable-compat28 --with-zlib=builtin --with-libjpeg=builtin --without-libtiff --with-libpng=builtin --with-expat=builtin --build=${BUILDHOST} --host=${HOST} --enable-accessibility
   BUILD_COMMAND $(MAKE)
-  INSTALL_COMMAND $(MAKE) locale_install "DESTDIR=${CMAKE_BINARY_DIR}/installroot"
+  INSTALL_COMMAND $(MAKE) locale_install "DESTDIR=${CMAKE_BINARY_DIR}/wxwidgets-installroot"
 )
+
+# Install wxWidgets locale files only.
+INSTALL(DIRECTORY "${CMAKE_BINARY_DIR}/wxwidgets-installroot/usr/local/share/" DESTINATION share/)

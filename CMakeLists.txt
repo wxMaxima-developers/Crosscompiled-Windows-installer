@@ -10,6 +10,10 @@ set(CMAKE_SYSTEM_NAME Windows)
 
 set(WXMAXIMAVERSION "21.01.0")
 
+# a installer version, which is appended to the installer, e.g. wxMaxima-21.01.0a-win64.exe
+# if for one wxMaxima version an improved installer is released.
+set(INSTALLER_VERSION "-2")
+
 set(WXMAXIMA_MD5 "2c9b97c786806172aa6ed000784e995e")
 
 option(BUILD_64BIT "Build a 64 bit installer." YES)
@@ -71,7 +75,7 @@ set(CPACK_PACKAGE_VENDOR "wxMaxima Team")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/wxmaxima/README.md")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/wxmaxima/GPL.txt")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "wxMaxima-${CPACK_PACKAGE_VERSION}")
-set(CPACK_PACKAGE_FILE_NAME "wxMaxima-${CPACK_PACKAGE_VERSION}-${INSTALLERSUFFIX}")
+set(CPACK_PACKAGE_FILE_NAME "wxMaxima-${CPACK_PACKAGE_VERSION}${INSTALLER_VERSION}-${INSTALLERSUFFIX}")
 set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/wxmaxima.bmp")
 set(CPACK_NSIS_INSTALL_ROOT "C:")
 set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)

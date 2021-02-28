@@ -8,13 +8,13 @@
 # Expects a crosscompiled wxWidgets library in $HOME/wxWidgets-3.1.0
 set(CMAKE_SYSTEM_NAME Windows)
 
-set(WXMAXIMAVERSION "21.01.0")
+set(WXMAXIMAVERSION "21.02.0")
 
 # a installer version, which is appended to the installer, e.g. wxMaxima-21.01.0a-win64.exe
 # if for one wxMaxima version an improved installer is released.
-set(INSTALLER_VERSION "-2")
+set(INSTALLER_VERSION "")
 
-set(WXMAXIMA_MD5 "2c9b97c786806172aa6ed000784e995e")
+set(WXMAXIMA_MD5 "be01eeb6714f851f6d7a1d1d6440e7c0")
 
 option(BUILD_64BIT "Build a 64 bit installer." YES)
 

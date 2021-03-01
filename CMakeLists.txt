@@ -30,7 +30,7 @@ set(CMAKE_C_COMPILER   ${HOST}-gcc)
 set(CMAKE_CXX_COMPILER ${HOST}-g++)
 set(CMAKE_RC_COMPILER  ${HOST}-windres)
 project(wxmaxima)
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.17)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
 set(wxWidgets_ROOT_DIR "${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets-build")
@@ -66,6 +66,8 @@ add_subdirectory("wxmaxima")
 
 # Include DLLs from the current Mingw environment.
 install(FILES "${MINGW_LIBSTDCPP}" "${MINGW_LIBGCC}" DESTINATION bin)
+install(FILES "wxmaximaicon.ico" DESTINATION "share/wxMaxima-${WXMAXIMAVERSION}")
+
 
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
 set(CPACK_GENERATOR "NSIS;ZIP")
@@ -76,13 +78,14 @@ set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/wxmaxima/README.md")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/wxmaxima/GPL.txt")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "wxMaxima-${CPACK_PACKAGE_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "wxMaxima-${CPACK_PACKAGE_VERSION}${INSTALLER_VERSION}-${INSTALLERSUFFIX}")
-set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/wxmaxima.bmp")
+set(CPACK_NSIS_MUI_HEADERIMAGE "${CMAKE_SOURCE_DIR}/wxmaxima.bmp")
 set(CPACK_NSIS_INSTALL_ROOT "C:")
 set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
 set(CPACK_NSIS_URL_INFO_ABOUT "https://wxmaxima-developers.github.io/wxmaxima/")
 set(CPACK_NSIS_MENU_LINKS "bin/wxmaxima.exe" "wxMaxima" "https://wxmaxima-developers.github.io/wxmaxima/" "About wxMaxima")
 set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
 set(CPACK_NSIS_MUI_WELCOMEFINISHPAGE_BITMAP "${CMAKE_SOURCE_DIR}/wxmaxima-installerimage.bmp")
+set(CPACK_NSIS_INSTALLED_ICON_NAME "share/wxMaxima-${WXMAXIMAVERSION}\\\\wxmaximaicon.ico")
 # #File associations:
 # set(CPACK_NSIS_DEFINES "!include ${CMAKE_SOURCE_DIR}\\\\FileAssociation.nsh")
 # set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "

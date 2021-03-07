@@ -38,7 +38,7 @@ set(wxWidgets_ROOT_DIR "${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwid
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/ ${CMAKE_BINARY_DIR}/)
 
 
-find_file (NSISTEMPLATE_IN  NAMES "NSIS.template.in" PATHS "${CMAKE_ROOT}/Modules/" "${CMAKE_ROOT}/Modules/Internal/CPack")
+find_file(NSISTEMPLATE_IN  NAMES "NSIS.template.in" PATHS "${CMAKE_ROOT}/Modules/" "${CMAKE_ROOT}/Modules/Internal/CPack")
 file(READ "${NSISTEMPLATE_IN}" MYNSISTEMPLATE)
 string(REPLACE "  RequestExecutionLevel admin" "  RequestExecutionLevel user" MYNSISTEMPLATE "${MYNSISTEMPLATE}")
 file(WRITE ${CMAKE_BINARY_DIR}/NSIS.template.in "${MYNSISTEMPLATE}")

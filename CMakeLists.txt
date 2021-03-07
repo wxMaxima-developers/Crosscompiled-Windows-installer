@@ -66,7 +66,7 @@ add_subdirectory("wxmaxima")
 
 # Include DLLs from the current Mingw environment.
 install(FILES "${MINGW_LIBSTDCPP}" "${MINGW_LIBGCC}" DESTINATION bin)
-install(FILES "wxmaximaicon.ico" DESTINATION "share/wxMaxima-${WXMAXIMAVERSION}")
+install(FILES "wxmaximaicon.ico" DESTINATION "share/wxMaxima")
 
 
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
@@ -85,7 +85,7 @@ set(CPACK_NSIS_URL_INFO_ABOUT "https://wxmaxima-developers.github.io/wxmaxima/")
 set(CPACK_NSIS_MENU_LINKS "bin/wxmaxima.exe" "wxMaxima" "https://wxmaxima-developers.github.io/wxmaxima/" "About wxMaxima")
 set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
 set(CPACK_NSIS_MUI_WELCOMEFINISHPAGE_BITMAP "${CMAKE_SOURCE_DIR}/wxmaxima-installerimage.bmp")
-set(CPACK_NSIS_INSTALLED_ICON_NAME "share/wxMaxima-${WXMAXIMAVERSION}\\\\wxmaximaicon.ico")
+set(CPACK_NSIS_INSTALLED_ICON_NAME "share/wxMaxima\\\\wxmaximaicon.ico")
 # #File associations:
 # set(CPACK_NSIS_DEFINES "!include ${CMAKE_SOURCE_DIR}\\\\FileAssociation.nsh")
 # set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "

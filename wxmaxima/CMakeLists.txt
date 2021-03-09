@@ -10,10 +10,6 @@
 # updated setup-file automatically.
 
 
-set(WXMAXIMA_URL "https://github.com/wxmaxima-developers/wxmaxima/archive/Version-${WXMAXIMAVERSION}.tar.gz")
-
-set(WXMAXIMA_GIT "https://github.com/wxmaxima-developers/wxmaxima.git")
-
 externalproject_add(wxmaxima
     URL "${WXMAXIMA_URL}"
     DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/downloads

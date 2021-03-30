@@ -95,20 +95,6 @@ set(CPACK_NSIS_MENU_LINKS "bin/wxmaxima.exe" "wxMaxima" "https://wxmaxima-develo
 set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
 set(CPACK_NSIS_MUI_WELCOMEFINISHPAGE_BITMAP "${CMAKE_SOURCE_DIR}/wxmaxima-installerimage.bmp")
 set(CPACK_NSIS_INSTALLED_ICON_NAME "share/wxMaxima\\\\wxmaximaicon.ico")
-# #File associations:
-# set(CPACK_NSIS_DEFINES "!include ${CMAKE_SOURCE_DIR}\\\\FileAssociation.nsh")
-# set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "
-# \\\${registerExtension} \\\"\\\$INSTDIR\\\\wxMaxima\\\\wxmaxima.exe\\\" \\\".wxm\\\" \\\"wxMaxima Document\\\"
-# \\\${registerExtension} \\\"\\\$INSTDIR\\\\wxMaxima\\\\wxmaxima.exe\\\" \\\".wxmx\\\" \\\"wxMaxima XML Document\\\"
-# \\\${registerExtension} \\\"\\\$INSTDIR\\\\wxMaxima\\\\wxmaxima.exe\\\" \\\".mac\\\" \\\"Maxima Batch file\\\"
-# WriteRegStr HKCR \\\".wxmx\\\\ShellNew\\\" \\\"NullFile\\\" \\\"\\\"
-# ")
-# set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "
-# \\\${unregisterExtension} \\\".wxm\\\" \\\"wxMaxima Document\\\"
-# \\\${unregisterExtension} \\\".wxmx\\\" \\\"wxMaxima XML Document\\\"
-# \\\${unregisterExtension} \\\".mac\\\" \\\"Maxima Batch File\\\"
-# DeleteRegKey HKCR \\\".wxmx\\\\ShellNew\\\"
-# ")
 
 
 include(CPack)

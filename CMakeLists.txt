@@ -19,7 +19,7 @@ option(BUILD_WXMAXIMA_GIT "Build current wxMaxima git version." NO)
 
 if(BUILD_WXMAXIMA_GIT)
     set(WXMAXIMAVERSION "current")
-    set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/master.zip")
+    set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/main.zip")
     set(WXMAXIMA_MD5 "")
 else()
     set(WXMAXIMAVERSION "21.02.0")

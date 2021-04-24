@@ -4,12 +4,10 @@
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-
-# Expects a crosscompiled wxWidgets library in $HOME/wxWidgets-3.1.0
 set(CMAKE_SYSTEM_NAME Windows)
 
-
-# a installer version, which is appended to the installer, e.g. wxMaxima-21.01.0a-win64.exe
+# An installer version, which is appended after the version to the installer name, e.g.
+# if that is set to "a", the name might be: wxMaxima-21.04.0a-win64.exe
 # if for one wxMaxima version an improved installer is released.
 set(INSTALLER_VERSION "")
 

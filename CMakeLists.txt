@@ -75,6 +75,18 @@ add_subdirectory("wxmaxima")
 install(FILES "${MINGW_LIBSTDCPP}" "${MINGW_LIBGCC}" DESTINATION bin)
 install(FILES "wxmaximaicon.ico" DESTINATION "share/wxMaxima")
 
+# Add some metainformation to the installer, see
+# https://nsis.sourceforge.io/Reference/VIProductVersion
+# https://nsis.sourceforge.io/Reference/VIAddVersionKey
+set(CPACK_NSIS_DEFINES "
+  VIProductVersion \\\"${WXMAXIMAVERSION}.0\\\"
+  VIAddVersionKey ProductName \\\"wxMaxima\\\"
+  VIAddVersionKey CompanyName \\\"wxMaxima Team\\\"
+  VIAddVersionKey LegalCopyright \\\"(c) wxMaxima Team - GPL 2.0\\\"
+  VIAddVersionKey ProductVersion \\\"${WXMAXIMAVERSION}\\\"
+  VIAddVersionKey FileVersion \\\"${WXMAXIMAVERSION}\\\"
+  ")
+
 
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
 set(CPACK_GENERATOR "NSIS;ZIP")

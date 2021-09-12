@@ -78,15 +78,18 @@ install(FILES "wxmaximaicon.ico" DESTINATION "share/wxMaxima")
 # Add some metainformation to the installer, see
 # https://nsis.sourceforge.io/Reference/VIProductVersion
 # https://nsis.sourceforge.io/Reference/VIAddVersionKey
-set(CPACK_NSIS_DEFINES "
-  VIProductVersion \\\"${WXMAXIMAVERSION}.0\\\"
-  VIAddVersionKey ProductName \\\"wxMaxima\\\"
-  VIAddVersionKey CompanyName \\\"wxMaxima Team\\\"
-  VIAddVersionKey LegalCopyright \\\"(c) wxMaxima Team - GPL 2.0\\\"
-  VIAddVersionKey ProductVersion \\\"${WXMAXIMAVERSION}\\\"
-  VIAddVersionKey FileVersion \\\"${WXMAXIMAVERSION}\\\"
-  ")
-
+# (only if WXMAXIMAVERSION is a version string like nn.nn.nn,
+# VIProductVersion must consist of 4 numbers.
+if(WXMAXIMAVERSION MATCHES "[0-9]+\.[0-9]+\.[0-9]+")
+    set(CPACK_NSIS_DEFINES "
+        VIProductVersion \\\"${WXMAXIMAVERSION}.0\\\"
+        VIAddVersionKey ProductName \\\"wxMaxima\\\"
+        VIAddVersionKey CompanyName \\\"wxMaxima Team\\\"
+        VIAddVersionKey LegalCopyright \\\"(c) wxMaxima Team - GPL 2.0\\\"
+        VIAddVersionKey ProductVersion \\\"${WXMAXIMAVERSION}\\\"
+        VIAddVersionKey FileVersion \\\"${WXMAXIMAVERSION}\\\"
+    ")
+endif()
 
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
 set(CPACK_GENERATOR "NSIS;ZIP")

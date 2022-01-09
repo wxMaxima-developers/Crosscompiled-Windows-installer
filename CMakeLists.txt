@@ -1,6 +1,6 @@
 # CMake file for crosscompiling wxMaxima for Windows
 # Copyright (C) by Wolfgang Dautermann
-# License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>
+# License GPLv2+: GNU GPL version 2 or later <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 

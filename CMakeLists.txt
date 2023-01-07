@@ -20,9 +20,9 @@ if(BUILD_WXMAXIMA_GIT)
     set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/main.zip")
     set(WXMAXIMA_MD5 "")
 else()
-    set(WXMAXIMAVERSION "22.09.0")
+    set(WXMAXIMAVERSION "22.12.0")
     set(WXMAXIMA_URL "https://github.com/wxmaxima-developers/wxmaxima/archive/Version-${WXMAXIMAVERSION}.tar.gz")
-    set(WXMAXIMA_MD5 "a798ace93778055a2691f4eeb810c0f9")
+    set(WXMAXIMA_MD5 "4ba949fcb40b897f8c235057abcd3163")
 endif()
 
 if(BUILD_64BIT)
@@ -44,6 +44,12 @@ set(wxWidgets_ROOT_DIR "${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwid
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/ ${CMAKE_BINARY_DIR}/)
 
+# What is the build system?
+execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE BUILDHOST OUTPUT_STRIP_TRAILING_WHITESPACE)
+message(STATUS "Build system: ${BUILDHOST}")
+
+# Output the host system, for which we are compiling
+message(STATUS "Host system: ${HOST}")
 
 find_file(NSISTEMPLATE_IN  NAMES "NSIS.template.in" PATHS "${CMAKE_ROOT}/Modules/" "${CMAKE_ROOT}/Modules/Internal/CPack")
 file(READ "${NSISTEMPLATE_IN}" MYNSISTEMPLATE)

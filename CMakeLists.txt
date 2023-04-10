@@ -70,6 +70,9 @@ message(STATUS "Found libstdc++ at ${MINGW_LIBSTDCPP}")
 
 message(STATUS "Found libgcc at ${MINGW_LIBGCC}")
 
+# Avoid warnings in CMake >= 3.24:
+cmake_policy(SET CMP0135 NEW)
+
 include(ExternalProject)
 
 

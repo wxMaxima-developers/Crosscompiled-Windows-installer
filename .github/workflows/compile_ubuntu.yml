@@ -1,0 +1,43 @@
+name: compile_ubuntu
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+permissions:
+  contents: read
+
+jobs:
+  compile_latest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout_git
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: install_packages
+        run: |
+             sudo apt-get update
+             sudo apt-get install gettext pandoc po4a g++-mingw-w64-x86-64 cmake make nsis wine wine64
+             sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
+      - name: configure
+        run: |
+             export CXXFLAGS="-Wall -Wextra -ansi"
+             mkdir build
+             cd build
+             cmake  ..
+             cd ..
+      - name: compile
+        run: |
+             cd build
+             cmake --build .
+             cd ..
+      - name: create_package
+        run: |
+             cd build
+             cmake --build . --target package
+             cd ..
+

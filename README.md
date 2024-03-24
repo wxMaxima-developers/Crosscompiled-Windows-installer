@@ -23,7 +23,9 @@ To build a installer, run:
 ```
 mkdir build
 cd build
-cmake .. # maybe with some of the options above
+# the Cmake call maybe with some of the options above,
+# maybe omit "-DCMAKE_BUILD_TYPE=Release" if you want debug symbols.
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 make package
 ```
@@ -31,7 +33,7 @@ make package
 You will need the `g++-mingw-w64-x86-64` (crosscompiler).
 
 
-To create a Release-Build (higher optimization, no debug info (smaller executable)), use
+To create a "Release"-Build (higher optimization, no debug info (smaller executable)), use
 ```
 cmake -DCMAKE_BUILD_TYPE=Release <path-to-source>
 ```

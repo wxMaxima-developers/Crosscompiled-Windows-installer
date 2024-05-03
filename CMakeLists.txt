@@ -13,11 +13,14 @@ set(INSTALLER_VERSION "")
 
 
 option(BUILD_64BIT "Build a 64 bit installer." YES)
-option(BUILD_WXMAXIMA_GIT "Build current wxMaxima git version." NO)
+option(BUILD_WXMAXIMA_GIT "Build a wxMaxima git version." NO)
+if (NOT DEFINED WXMAXIMA_GIT_HASH)
+        set(WXMAXIMA_GIT_HASH "main")
+endif()
 
 if(BUILD_WXMAXIMA_GIT)
     set(WXMAXIMAVERSION "current")
-    set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/main.zip")
+    set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/${WXMAXIMA_GIT_HASH}.zip")
     set(WXMAXIMA_MD5 "")
 else()
     set(WXMAXIMAVERSION "24.02.2")

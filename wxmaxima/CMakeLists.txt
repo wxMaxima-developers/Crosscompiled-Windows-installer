@@ -10,7 +10,7 @@
 # updated setup-file automatically.
 
 # use a path to a existing wxMaxima source?
-if(DEFINED WITH_WXMAXIMA_SOURCE)
+if(WITH_WXMAXIMA_SOURCE)
     message(STATUS "Using wxMaxima source: ${WITH_WXMAXIMA_SOURCE}")
 externalproject_add(wxmaxima
     SOURCE_DIR ${WITH_WXMAXIMA_SOURCE}
@@ -24,6 +24,7 @@ externalproject_add(wxmaxima
     INSTALL_COMMAND $(MAKE) install "DESTDIR=${CMAKE_BINARY_DIR}/installroot"
 )
 else()
+    message(STATUS "Using wxMaxima source: ${WXMAXIMA_URL}")
 externalproject_add(wxmaxima
     URL "${WXMAXIMA_URL}"
     DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/downloads

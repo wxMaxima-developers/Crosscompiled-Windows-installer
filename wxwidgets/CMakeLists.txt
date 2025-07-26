@@ -9,8 +9,8 @@
 # If no further patches are needed, you should get a
 # updated setup-file automatically.
 
-set(WXWIDGETSVERSION "3.2.8")
-set(WXWIDGETS_MD5 "d809582fa4508eb350ef68a81f2fbd47")
+set(WXWIDGETSVERSION "3.3.1")
+set(WXWIDGETS_MD5 "07b6aa29b064928ca72d5a2055fb710b")
 set(WXWIDGETS_URL "https://github.com/wxWidgets/wxWidgets/releases/download/v${WXWIDGETSVERSION}/wxWidgets-${WXWIDGETSVERSION}.tar.bz2")
 
 
@@ -22,7 +22,7 @@ externalproject_add(wxwidgets
   URL "${WXWIDGETS_URL}"
   DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/downloads
   URL_MD5 ${WXWIDGETS_MD5}
-  CONFIGURE_COMMAND ${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets/configure --disable-shared --disable-compat28 --with-zlib=builtin --with-libjpeg=builtin --without-libtiff --with-libpng=builtin --with-expat=builtin --build=${BUILDHOST} --host=${HOST} --enable-accessibility --enable-webview
+  CONFIGURE_COMMAND ${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets/configure --disable-shared --with-zlib=builtin --with-libjpeg=builtin --without-libtiff --with-libpng=builtin --with-expat=builtin --build=${BUILDHOST} --host=${HOST} --enable-accessibility --enable-webview
   BUILD_COMMAND $(MAKE)
   INSTALL_COMMAND $(MAKE) locale_install "DESTDIR=${CMAKE_BINARY_DIR}/wxwidgets-installroot"
 )

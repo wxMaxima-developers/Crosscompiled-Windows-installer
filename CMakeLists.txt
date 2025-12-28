@@ -63,7 +63,14 @@ message(STATUS "Copied and patched ${CMAKE_ROOT}/Modules/NSIS.template.in to ${C
 if(BUILD_64BIT)
     execute_process(COMMAND "${CMAKE_CXX_COMPILER}" -print-file-name=libgcc_s_seh-1.dll OUTPUT_VARIABLE MINGW_LIBGCC    OUTPUT_STRIP_TRAILING_WHITESPACE)
 else()
+	# It's difficult. On Ubuntu 22.04 and 20.04 (64bit) the library libgcc is called libgcc_s_seh-1.dll.
+	# On Ubuntu 20.04 (32bit) it is libgcc_s_sjlj-1.dll - that file does not exist in Ubuntu 22.04/24.04, there it is most likely libgcc_s_dw2-1.dll
     execute_process(COMMAND "${CMAKE_CXX_COMPILER}" -print-file-name=libgcc_s_sjlj-1.dll OUTPUT_VARIABLE MINGW_LIBGCC    OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if("${MINGW_LIBGCC}" STREQUAL "libgcc_s_sjlj-1.dll")
+    # "${CMAKE_CXX_COMPILER}" -print-file-name=libgcc_s_sjlj-1.dll prints the same string, if the file was not found. Otherwise the full path to the library.
+    execute_process(COMMAND "${CMAKE_CXX_COMPILER}" -print-file-name=libgcc_s_dw2-1.dll OUTPUT_VARIABLE MINGW_LIBGCC    OUTPUT_STRIP_TRAILING_WHITESPACE)
+    endif()
+
 endif()
 
 execute_process(COMMAND "${CMAKE_CXX_COMPILER}" -print-file-name=libstdc++-6.dll     OUTPUT_VARIABLE MINGW_LIBSTDCPP OUTPUT_STRIP_TRAILING_WHITESPACE)

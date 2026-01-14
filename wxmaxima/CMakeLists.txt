@@ -9,6 +9,10 @@
 # If no further patches are needed, you should get a
 # updated setup-file automatically.
 
+if(DEFINED CMAKE_CXX_STANDARD)
+    set(WXMAXIMA_CXX_STANDARD "-DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD}")
+endif()
+
 # use a path to a existing wxMaxima source?
 if(WITH_WXMAXIMA_SOURCE)
     message(STATUS "Using wxMaxima source: ${WITH_WXMAXIMA_SOURCE}")
@@ -19,7 +23,7 @@ externalproject_add(wxmaxima
     # had to set CMAKE_LIBRARY_PATH=/usr/${HOST}/lib - libraries for mingw are installed there, but CMake (>3.8)
     # tries to check all the libraries reported by wx-config, but does not check this directory...
     CMAKE_CACHE_ARGS "-DCMAKE_PROGRAM_PATH:PATH=${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets-build" "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}"
-    CMAKE_ARGS -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME} -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} -DCMAKE_RC_COMPILER=${CMAKE_RC_COMPILER} -DCMAKE_LIBRARY_PATH=/usr/${HOST}/lib
+    CMAKE_ARGS -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME} -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} -DCMAKE_RC_COMPILER=${CMAKE_RC_COMPILER} -DCMAKE_LIBRARY_PATH=/usr/${HOST}/lib ${WXMAXIMA_CXX_STANDARD}
     BUILD_COMMAND $(MAKE)
     INSTALL_COMMAND $(MAKE) install "DESTDIR=${CMAKE_BINARY_DIR}/installroot"
 )
@@ -35,7 +39,7 @@ externalproject_add(wxmaxima
     # had to set CMAKE_LIBRARY_PATH=/usr/${HOST}/lib - libraries for mingw are installed there, but CMake (>3.8)
     # tries to check all the libraries reported by wx-config, but does not check this directory...
     CMAKE_CACHE_ARGS "-DCMAKE_PROGRAM_PATH:PATH=${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets-build" "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}"
-    CMAKE_ARGS -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME} -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} -DCMAKE_RC_COMPILER=${CMAKE_RC_COMPILER} -DCMAKE_LIBRARY_PATH=/usr/${HOST}/lib
+    CMAKE_ARGS -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME} -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} -DCMAKE_RC_COMPILER=${CMAKE_RC_COMPILER} -DCMAKE_LIBRARY_PATH=/usr/${HOST}/lib ${WXMAXIMA_CXX_STANDARD}
     BUILD_COMMAND $(MAKE)
     INSTALL_COMMAND $(MAKE) install "DESTDIR=${CMAKE_BINARY_DIR}/installroot"
 )

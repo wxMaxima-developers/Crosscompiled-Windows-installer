@@ -22,8 +22,8 @@ if(BUILD_WXMAXIMA_GIT)
     set(WXMAXIMA_URL "https://github.com/wxMaxima-developers/wxmaxima/archive/${WXMAXIMA_GIT_HASH}.zip")
     set(WXMAXIMA_MD5 "")
 else()
-    set(WXMAXIMAVERSION "26.05.0")
-    set(WXMAXIMA_MD5 "345cd167eb9abb0d5f3b0595d10550b0")
+    set(WXMAXIMAVERSION "26.06.1")
+    set(WXMAXIMA_MD5 "d3a989cf2f689d10df2bacaadadd93fb")
     set(WXMAXIMA_URL "https://github.com/wxmaxima-developers/wxmaxima/archive/Version-${WXMAXIMAVERSION}.tar.gz")
 endif()
 
@@ -35,11 +35,15 @@ else()
     set(INSTALLERSUFFIX "win32")
 endif()
 
-set(CMAKE_C_COMPILER   ${HOST}-gcc)
 set(CMAKE_CXX_COMPILER ${HOST}-g++)
 set(CMAKE_RC_COMPILER  ${HOST}-windres)
 cmake_minimum_required(VERSION 3.16)
-project(wxmaxima)
+project(wxmaxima
+        DESCRIPTION "wxMaxima is a document based interface for the computer algebra system Maxima."
+        HOMEPAGE_URL "https://wxmaxima-developers.github.io/wxmaxima/"
+        VERSION 26.06.1
+        LANGUAGES CXX
+)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
 set(wxWidgets_ROOT_DIR "${CMAKE_BINARY_DIR}/wxwidgets/wxwidgets-prefix/src/wxwidgets-build")

@@ -10,7 +10,7 @@
 # updated setup-file automatically.
 
 set(WXWIDGETSVERSION "3.3.3")
-set(WXWIDGETS_MD5 "6b80ff2eae7043a12e6ba3d4ebd7204d")
+set(WXWIDGETS_MD5 "a804b52a1faff69d77bdfbf8bc50ce5a")
 set(WXWIDGETS_URL "https://github.com/wxWidgets/wxWidgets/releases/download/v${WXWIDGETSVERSION}/wxWidgets-${WXWIDGETSVERSION}.tar.bz2")
 
 

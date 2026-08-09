@@ -92,6 +92,7 @@ include(ExternalProject)
 
 
 add_subdirectory("wxwidgets")
+add_subdirectory("fribidi")
 add_subdirectory("wxmaxima")
 
 

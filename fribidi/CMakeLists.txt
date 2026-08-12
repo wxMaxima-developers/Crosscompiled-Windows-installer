@@ -21,9 +21,11 @@ externalproject_add(fribidi
     BUILD_IN_SOURCE 1
     CONFIGURE_COMMAND ./autogen.sh
               COMMAND ./configure --host=${HOST} --prefix=${CMAKE_BINARY_DIR}/fribidi-installroot
-  BUILD_COMMAND $(MAKE)
-  INSTALL_COMMAND $(MAKE) install
+    BUILD_COMMAND $(MAKE)
+    INSTALL_COMMAND $(MAKE) install
 )
 
+# Include libfribidi DLL in the wxMaxima installer.
+install(FILES "${CMAKE_BINARY_DIR}/fribidi-installroot/bin/libfribidi-0.dll" DESTINATION bin/)
 
 
